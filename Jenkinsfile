@@ -7,13 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the version control system
-                checkout scm
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 echo 'Building the Docker image for the Unified App (React + Express)...'

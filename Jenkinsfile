@@ -17,16 +17,16 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building the Docker image for the Unified App (React + Express)...'
-                // Use 'bat' instead of 'sh' if your Jenkins agent is running natively on Windows without WSL/Bash
-                sh "docker build -t ${IMAGE_NAME}:latest ."
+                // Use 'bat' instead of 'sh' since Jenkins agent is running natively on Windows
+                bat "docker build -t ${IMAGE_NAME}:latest ."
             }
         }
 
         stage('Deploy / Run') {
             steps {
                 echo 'Starting the application and dependencies (MongoDB) using Docker Compose...'
-                sh 'docker compose down'
-                sh 'docker compose up -d'
+                bat 'docker compose down'
+                bat 'docker compose up -d'
             }
         }
     }

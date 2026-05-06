@@ -18,8 +18,8 @@ pipeline {
         stage('Deploy / Run') {
             steps {
                 echo 'Starting the application and dependencies (MongoDB) using Docker Compose...'
-                bat 'docker compose down'
-                bat 'docker compose up -d'
+                bat 'docker compose -p assn27 down'
+                bat 'docker compose -p assn27 up -d'
             }
         }
     }
